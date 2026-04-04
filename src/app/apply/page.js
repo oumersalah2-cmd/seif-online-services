@@ -13,10 +13,32 @@ export default function ApplyPage() {
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [selectedService, setSelectedService] = useState("urgent");
+  const [fallbackDetails, setFallbackDetails] = useState("");
   const selectedPrice = useMemo(() => {
     const service = SERVICE_OPTIONS.find((item) => item.value === selectedService);
     return service ? service.price : 0;
   }, [selectedService]);
+
+  function buildFallbackDetails(form) {
+    const formData = new FormData(form);
+    const service = SERVICE_OPTIONS.find((item) => item.value === formData.get("service"));
+
+    return [
+      "IYYATA HAARAA",
+      `Maqaa: ${formData.get("fullName") || ""}`,
+      `Bilbila: ${formData.get("phone") || ""}`,
+      `Bakka: ${formData.get("location") || ""}`,
+      `Tajaajila: ${service ? service.label : ""}`,
+      `Gatii: ${service ? service.price.toLocaleString() : ""} Birr`,
+      `Ibsa: ${formData.get("details") || "Hin jiru"}`,
+      "Dokumantiiwwan fi screenshot kaffaltii Telegram irratti ergaa.",
+    ].join("\n");
+  }
+
+  function openTelegramFallback(details) {
+    const telegramUrl = `https://t.me/Seifa95?text=${encodeURIComponent(details)}`;
+    window.open(telegramUrl, "_blank", "noopener,noreferrer");
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,6 +46,8 @@ export default function ApplyPage() {
     setSubmitting(true);
     setError("");
     setStatus("");
+    setFallbackDetails("");
+    const fallbackText = buildFallbackDetails(form);
 
     try {
       const formData = new FormData(form);
@@ -49,7 +73,12 @@ export default function ApplyPage() {
       form.reset();
       setSelectedService("urgent");
     } catch (submissionError) {
-      setError(submissionError.message);
+      setError("");
+      setFallbackDetails(fallbackText);
+      openTelegramFallback(fallbackText);
+      setStatus(
+        "Server irratti kuufamuun dadhabe. Iyyanni keessan Telegram irratti banameera; achitti ergaa itti fufaa.",
+      );
     } finally {
       setSubmitting(false);
     }
@@ -78,6 +107,36 @@ export default function ApplyPage() {
           {error && (
             <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-center font-bold text-red-700">
               {error}
+            </div>
+          )}
+          {fallbackDetails && (
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-amber-700">
+                Emergency Fallback
+              </p>
+              <p className="mt-2 text-sm font-semibold leading-6 text-slate-700">
+                Yoo server hin kuufne, odeeffannoo kanaan Telegram yookaan bilbilaan itti
+                fufuu dandeessu.
+              </p>
+              <pre className="mt-4 whitespace-pre-wrap rounded-xl bg-white p-4 text-sm font-bold text-slate-800">
+                {fallbackDetails}
+              </pre>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <a
+                  href="https://t.me/Seifa95"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-2xl bg-[#229ED9] px-6 py-4 text-center font-black text-white transition hover:bg-[#1c80b0]"
+                >
+                  Telegram Bani
+                </a>
+                <a
+                  href="tel:+251928340303"
+                  className="rounded-2xl bg-blue-600 px-6 py-4 text-center font-black text-white transition hover:bg-blue-700"
+                >
+                  Bilbila Bani
+                </a>
+              </div>
             </div>
           )}
 
