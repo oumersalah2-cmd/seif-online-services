@@ -205,6 +205,27 @@ export default function ApplyPage() {
           </button>
         </form>
       </div>
+
+      <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-blue-100 bg-white px-5 py-4 text-center shadow-sm">
+        <p className="text-[11px] font-black uppercase tracking-[0.25em] text-blue-600">
+          Developed By
+        </p>
+        <p className="mt-2 text-base font-black text-slate-900">Abdusalam Oumer</p>
+        <a
+          href="tel:+251934978247"
+          className="mt-2 block text-sm font-black text-slate-700 transition hover:text-blue-600"
+        >
+          0934978247
+        </a>
+        <a
+          href="https://t.me/AfewSVS"
+          target="_blank"
+          rel="noreferrer"
+          className="mt-2 inline-block rounded-full bg-[#229ED9] px-4 py-2 text-sm font-black text-white transition hover:bg-[#1c80b0]"
+        >
+          @AfewSVS
+        </a>
+      </div>
     </div>
   );
 }
