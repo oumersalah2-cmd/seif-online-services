@@ -1,274 +1,231 @@
-"use client";
-
-import { useState } from "react";
-
-const initialForm = {
-  fullName: "",
-  phone: "",
-  service: "passport",
-  location: "",
-  contactMethod: "phone",
-  details: "",
-};
+import Link from "next/link";
 
 export default function Home() {
-  const [formData, setFormData] = useState(initialForm);
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setFormData((current) => ({
-      ...current,
-      [name]: value,
-    }));
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    setSubmitted(true);
-    setFormData(initialForm);
-  }
-
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900">
-      <header className="sticky top-0 z-50 flex items-center justify-between border-b bg-white p-6 shadow-sm">
-        <h1 className="text-2xl font-black tracking-tighter text-blue-700 italic">
-          SEIF ONLINE SERVICES
-        </h1>
-        <nav className="hidden space-x-8 font-semibold text-gray-600 md:flex">
-          <a href="#" className="transition hover:text-blue-600">
-            Hundee
-          </a>
-          <a href="#tajaajila" className="transition hover:text-blue-600">
-            Tajaajila
-          </a>
-          <a href="tel:+251912345678" className="transition hover:text-blue-600">
-            Bilbila
-          </a>
-        </nav>
-        <a
-          href="#iyyata-form"
-          className="rounded-full bg-blue-600 px-6 py-2 text-sm font-bold text-white shadow-md transition hover:bg-blue-700"
-        >
-          IYYADHU
-        </a>
+    <div className="min-h-screen bg-white text-slate-900">
+      <header className="sticky top-0 z-50 border-b border-blue-100 bg-white/90 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.35em] text-blue-600">
+              Dodola, Oromia
+            </p>
+            <h1 className="text-2xl font-black italic tracking-tight text-slate-900">
+              SEIF ONLINE SERVICES
+            </h1>
+          </div>
+
+          <nav className="hidden items-center gap-8 text-sm font-semibold text-slate-600 md:flex">
+            <a href="#waaee" className="transition hover:text-blue-600">
+              Waa&apos;ee
+            </a>
+            <a href="#qunnamtii" className="transition hover:text-blue-600">
+              Qunnamtii
+            </a>
+            <a href="#kaffaltii" className="transition hover:text-blue-600">
+              Kaffaltii
+            </a>
+          </nav>
+
+          <Link
+            href="/apply"
+            className="rounded-full bg-blue-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-700"
+          >
+            IYYADHU
+          </Link>
+        </div>
       </header>
 
-      <main className="mx-auto mt-12 max-w-5xl px-6 text-center">
-        <div className="mb-6">
-          <span className="rounded-full bg-green-100 px-4 py-1 text-sm font-bold uppercase tracking-wide text-green-700">
-            Waggaa 5+ Muuxannoo
-          </span>
-        </div>
+      <main>
+        <section className="overflow-hidden bg-[linear-gradient(135deg,#083baf_0%,#1967d2_42%,#67d4ff_100%)] px-6 py-20 text-white">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div>
+              <span className="rounded-full bg-white/15 px-4 py-1 text-xs font-black uppercase tracking-[0.25em] text-blue-50 ring-1 ring-white/25">
+                Tajaajila Amanamaa fi Saffisaa
+              </span>
 
-        <h2 className="text-4xl font-extrabold leading-tight text-gray-800 md:text-6xl">
-          Tajaajila Passpoortii <br />
-          <span className="text-blue-600 italic">Dodolaa fi Naannawa Isheetti</span>
-        </h2>
+              <h2 className="mt-6 max-w-4xl text-4xl font-black leading-tight md:text-6xl">
+                Seif Online Services
+                <span className="block text-cyan-200">Passpoortii fi Tajaajila Online</span>
+              </h2>
 
-        <div className="mx-auto mt-10 max-w-3xl rounded-2xl border-l-4 border-blue-600 bg-blue-50 p-6 text-left">
-          <p className="text-lg leading-relaxed text-gray-700">
-            <strong>Seif Online Services</strong> waggoota shanii oliif tajaajila amanamaa
-            ta&apos;e kan kennaa ture yommuu ta&apos;u, amanamummaan hojii isaa xumuruun akka{" "}
-            <strong>magaala Dodolaa fi naannawa ishiitti</strong> dhageettii fi amanamummaa
-            guddaa horachuu danda&apos;eera.
-          </p>
-        </div>
+              <p
+                id="waaee"
+                className="mt-6 max-w-3xl rounded-[1.75rem] bg-white/10 p-6 text-lg leading-8 text-blue-50 ring-1 ring-white/15 backdrop-blur-sm"
+              >
+                <strong>Seif Online Services</strong>{" "}waggoota 5 oliif magaalaa Dodolaa
+                keessatti amanamummaan tajaajilaa tureera. Yeroo kana keessatti passpoortii
+                1000 ol ta&apos;u namootaaf haala mijeessee xumursiiseera. Akkasumas gorsa
+                waa&apos;ee agensiilee alaa tokko tokkoon walqabatan ni kenna; check-up
+                yeroo gara garaatti passpoortii irratti godhamuufis deeggarsa sirrii ni
+                taasisa.
+              </p>
+              <p className="mt-4 max-w-3xl text-base font-bold leading-7 text-cyan-100">
+                Tajaajila kan bakka barbaaddanitti argachuu dandeessu; mana keessan teettanii
+                salphaatti nu qunnamuun tajaajila barbaaddan argachuu ni dandeessu.
+              </p>
 
-        <div className="mx-auto mt-12 max-w-4xl rounded-3xl bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-400 p-1 shadow-2xl transition-transform hover:scale-[1.01]">
-          <div className="rounded-[22px] bg-white p-8 text-left md:p-12">
-            <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <div>
-                <h3 className="text-2xl font-bold">Iyyata Keessan Amma Guutaa</h3>
-                <p className="mt-2 max-w-2xl text-sm text-gray-500">
-                  Odeeffannoo keessan guutaa. Erga guuttanii booda bilbilaan yookaan Telegramiin isin
-                  qunnamna.
-                </p>
+              <div className="mt-8 grid max-w-3xl gap-4 sm:grid-cols-3">
+                <div className="rounded-3xl bg-white/12 p-5 ring-1 ring-white/20 backdrop-blur">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-100">
+                    Muuxannoo
+                  </p>
+                  <p className="mt-3 text-3xl font-black">5+</p>
+                  <p className="mt-2 text-sm leading-6 text-blue-50">
+                    Waggoota tajaajila amanamaa
+                  </p>
+                </div>
+                <div className="rounded-3xl bg-white/12 p-5 ring-1 ring-white/20 backdrop-blur">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-100">
+                    Passpoortii
+                  </p>
+                  <p className="mt-3 text-3xl font-black">1000+</p>
+                  <p className="mt-2 text-sm leading-6 text-blue-50">
+                    Namootaaf haala mijeessee xumursiise
+                  </p>
+                </div>
+                <div className="rounded-3xl bg-white/12 p-5 ring-1 ring-white/20 backdrop-blur">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-100">
+                    Gorsa
+                  </p>
+                  <p className="mt-3 text-3xl font-black">Amanamaa</p>
+                  <p className="mt-2 text-sm leading-6 text-blue-50">
+                    Agensii fi check-up irratti gorsa sirrii
+                  </p>
+                </div>
               </div>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  href="/apply"
+                  className="rounded-2xl bg-white px-8 py-4 text-base font-black text-blue-700 shadow-2xl transition hover:bg-blue-50"
+                >
+                  Amma Iyyadhu
+                </Link>
                 <a
-                  href="https://t.me/YOUR_FRIENDS_TELEGRAM"
+                  href="https://t.me/Seifa95"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center rounded-2xl bg-[#229ED9] px-6 py-3 text-base font-bold text-white shadow-lg transition-all hover:bg-[#1c80b0]"
+                  className="rounded-2xl border border-white/30 bg-[#229ED9] px-8 py-4 text-base font-bold text-white transition hover:bg-[#1c80b0]"
                 >
-                  <span className="mr-2 text-2xl">✈️</span>
-                  Telegram
+                  Telegram Bani
                 </a>
                 <a
-                  href="tel:+251912345678"
-                  className="flex items-center justify-center rounded-2xl bg-green-600 px-6 py-3 text-base font-bold text-white shadow-lg transition-all hover:bg-green-700"
+                  href="tel:+251928340303"
+                  className="rounded-2xl border border-white/30 bg-white/10 px-8 py-4 text-base font-bold text-white transition hover:bg-white/15"
                 >
-                  <span className="mr-2 text-2xl">📞</span>
-                  Bilbila
+                  Bilbili: 0928340303
                 </a>
               </div>
             </div>
 
-            <form id="iyyata-form" className="space-y-5" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                <label className="block">
-                  <span className="mb-2 block text-sm font-semibold text-gray-700">Maqaa Guutuu</span>
-                  <input
-                    type="text"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    placeholder="Maqaa keessan guutuu"
-                    required
-                    className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 outline-none transition focus:border-blue-500 focus:bg-white"
-                  />
-                </label>
-
-                <label className="block">
-                  <span className="mb-2 block text-sm font-semibold text-gray-700">Lakkoofsa Bilbilaa</span>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="+2519..."
-                    required
-                    className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 outline-none transition focus:border-blue-500 focus:bg-white"
-                  />
-                </label>
-
-                <label className="block">
-                  <span className="mb-2 block text-sm font-semibold text-gray-700">Gosa Tajaajilaa</span>
-                  <select
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 outline-none transition focus:border-blue-500 focus:bg-white"
-                  >
-                    <option value="passport">Passpoortii Haaraa</option>
-                    <option value="renewal">Haaromsaa Passpoortii</option>
-                    <option value="appointment">Appointment Qabsiisuu</option>
-                    <option value="other">Tajaajila Biroo</option>
-                  </select>
-                </label>
-
-                <label className="block">
-                  <span className="mb-2 block text-sm font-semibold text-gray-700">Bakka Jirtan</span>
-                  <input
-                    type="text"
-                    name="location"
-                    value={formData.location}
-                    onChange={handleChange}
-                    placeholder="Dodolaa yookaan naannoo keessan"
-                    required
-                    className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 outline-none transition focus:border-blue-500 focus:bg-white"
-                  />
-                </label>
-              </div>
-
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-gray-700">Akka itti isin qunnamnu filadhaa</span>
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                  <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-gray-200 px-4 py-3">
-                    <input
-                      type="radio"
-                      name="contactMethod"
-                      value="phone"
-                      checked={formData.contactMethod === "phone"}
-                      onChange={handleChange}
-                    />
-                    <span className="font-medium text-gray-700">Bilbilaan</span>
-                  </label>
-                  <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-gray-200 px-4 py-3">
-                    <input
-                      type="radio"
-                      name="contactMethod"
-                      value="telegram"
-                      checked={formData.contactMethod === "telegram"}
-                      onChange={handleChange}
-                    />
-                    <span className="font-medium text-gray-700">Telegramiin</span>
-                  </label>
+            <div className="rounded-[2rem] bg-white p-8 text-slate-900 shadow-2xl ring-1 ring-blue-100">
+              <p className="text-sm font-black uppercase tracking-[0.3em] text-blue-600">
+                Waa&apos;ee Tajaajilaa
+              </p>
+              <div className="mt-6 space-y-5">
+                <div className="rounded-2xl bg-blue-50 p-5">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-blue-600">
+                    Tajaajila Ijoo
+                  </p>
+                  <p className="mt-2 text-base leading-7 text-slate-700">
+                    Iyyata passpoortii, haaromsaa, check-up, fi gorsa hojii online
+                    walqabatan irratti deeggarsa ni kenna.
+                  </p>
                 </div>
-              </label>
-
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-gray-700">Ibsa Dabalataa</span>
-                <textarea
-                  name="details"
-                  value={formData.details}
-                  onChange={handleChange}
-                  rows="5"
-                  placeholder="Rakkoo yookaan odeeffannoo dabalataa as keessatti barreessaa"
-                  className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 outline-none transition focus:border-blue-500 focus:bg-white"
-                />
-              </label>
-
-              <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-gray-700">Dokumantii Upload</span>
-                <input
-                  type="file"
-                  className="w-full rounded-2xl border border-dashed border-blue-200 bg-blue-50 px-4 py-3 text-sm text-gray-600 file:mr-4 file:rounded-full file:border-0 file:bg-blue-600 file:px-4 file:py-2 file:font-semibold file:text-white"
-                />
-                <span className="mt-2 block text-xs text-gray-500">
-                  File keessan amma filachuu dandeessu. Erguun kun marsariitii irratti qofa agarsiisa;
-                  backend itti aanu keessatti walqabsiifna.
-                </span>
-              </label>
-
-              <div className="flex flex-col gap-4 border-t border-gray-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-sm text-gray-500">
-                  Odeeffannoon keessan tajaajila iyyataa qofaaf ni fayyada.
-                </p>
-                <button
-                  type="submit"
-                  className="rounded-2xl bg-blue-600 px-8 py-3 text-base font-bold text-white shadow-lg transition hover:bg-blue-700"
-                >
-                  Iyyata Ergi
-                </button>
-              </div>
-
-              {submitted ? (
-                <div className="rounded-2xl border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-700">
-                  Iyyanni keessan galmaa&apos;eera. Tajaajilaan keenya yeroo dhihoo keessatti isin qunnamu.
+                <div className="rounded-2xl bg-slate-50 p-5">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-blue-600">
+                    Agensii fi Gorsa
+                  </p>
+                  <p className="mt-2 text-base leading-7 text-slate-700">
+                    Agensiilee alaa tokko tokkoon walqabatan irratti odeeffannoo fi
+                    kallattii sirrii ni kenna.
+                  </p>
                 </div>
-              ) : null}
-            </form>
+                <div className="rounded-2xl bg-slate-50 p-5">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-blue-600">
+                    Check-Up
+                  </p>
+                  <p className="mt-2 text-base leading-7 text-slate-700">
+                    Yeroo gara garaatti passpoortii irratti check-up godhamu hordofee
+                    odeeffannoo barbaachisaa ni laata.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div id="tajaajila" className="mt-20 grid grid-cols-1 gap-8 border-t pb-20 pt-12 text-left md:grid-cols-3">
-          <div className="p-4">
-            <div className="mb-3 text-3xl font-bold text-blue-600">01</div>
-            <h4 className="mb-2 border-b-2 border-blue-100 pb-1 text-lg font-bold uppercase text-gray-800">
-              CBE Qofa
-            </h4>
-            <p className="text-sm font-medium text-gray-500">
-              Kaffaltiin kessan hundi nagaa fi amanamummaan karaa{" "}
-              <strong>Baankii Daldala Itiyoophiyaa (CBE)</strong> qofa raawwatama.
+        <section
+          id="qunnamtii"
+          className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-3"
+        >
+          <div className="rounded-3xl border border-blue-100 bg-blue-50 p-8">
+            <div className="text-3xl font-black text-blue-600">01</div>
+            <h3 className="mt-4 text-xl font-black text-slate-900">Teessoo</h3>
+            <p className="mt-3 leading-7 text-slate-600">
+              Iddoon argama keenyaa magaalaa Dodolaa, Baankii Daldala Itoophiyaa damee
+              Nasrii cinaatti nu argachuu dandeessu.
             </p>
           </div>
-          <div className="border-l border-r border-gray-100 px-6 py-4">
-            <div className="mb-3 text-3xl font-bold text-blue-600">02</div>
-            <h4 className="mb-2 border-b-2 border-blue-100 pb-1 text-lg font-bold uppercase text-gray-800">
-              Muuxannoo
-            </h4>
-            <p className="text-sm font-medium text-gray-500">
-              Waggaa 5 oliif muuxannoo qabnuun dogoggora tokko malee isiniif xumurra.
+
+          <div className="rounded-3xl border border-blue-100 bg-white p-8 shadow-sm">
+            <div className="text-3xl font-black text-blue-600">02</div>
+            <h3 className="mt-4 text-xl font-black text-slate-900">Qunnamtii</h3>
+            <p className="mt-3 leading-7 text-slate-600">
+              Odeeffannoo dabalataa barbaaddan bilbilaan 0928340303 irratti qunnamaa
+              yookaan Telegram irratti @Seifa95 fayyadamaa.
+            </p>
+            <a
+              href="https://t.me/Seifa95"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-flex rounded-2xl bg-[#229ED9] px-5 py-3 font-black text-white transition hover:bg-[#1c80b0]"
+            >
+              @Seifa95
+            </a>
+          </div>
+
+          <div id="kaffaltii" className="rounded-3xl border border-blue-100 bg-cyan-50 p-8">
+            <div className="text-3xl font-black text-blue-600">03</div>
+            <h3 className="mt-4 text-xl font-black text-slate-900">Kaffaltii</h3>
+            <p className="mt-3 leading-7 text-slate-600">
+              CBE fi Telebirr odeeffannoo kaffaltii asitti qofa argitu:
+            </p>
+            <p className="mt-4 rounded-2xl bg-white px-4 py-3 text-lg font-black tracking-wide text-slate-900">
+              1000110349231
+            </p>
+            <p className="mt-3 rounded-2xl bg-white px-4 py-3 text-lg font-black tracking-wide text-slate-900">
+              Telebirr: 0910147495
             </p>
           </div>
-          <div className="p-4">
-            <div className="mb-3 text-3xl font-bold text-blue-600">03</div>
-            <h4 className="mb-2 border-b-2 border-blue-100 pb-1 text-lg font-bold uppercase text-gray-800">
-              Naannoo Dodolaa
-            </h4>
-            <p className="text-sm font-medium text-gray-500">
-              Nuun qunnamuun baay&apos;ee salphaadha. Nutis namoota naannoo keessanii waan taaneef nu
-              amanuu dandeessu.
+        </section>
+
+        <section className="px-6 pb-20">
+          <div className="mx-auto max-w-4xl rounded-[2rem] bg-[linear-gradient(135deg,#0a4bc9_0%,#229ed9_100%)] px-8 py-12 text-center text-white shadow-2xl">
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-blue-100">
+              Iyyata Online
             </p>
+            <h3 className="mt-4 text-3xl font-black md:text-4xl">
+              Iyyata guutuuf fuula addaa qopheessineerra
+            </h3>
+            <p className="mt-4 text-base leading-7 text-blue-50">
+              Fuula jalqabaa irratti waa&apos;ee tajaajila keenya fi qunnamtii qofa ni
+              argitu. Namni iyyachuu barbaadu button <strong>IYYADHU</strong> jedhu
+              xuquun gara fuula iyyataa seena.
+            </p>
+            <Link
+              href="/apply"
+              className="mt-8 inline-flex rounded-2xl bg-white px-8 py-4 text-base font-black text-blue-700 transition hover:bg-blue-50"
+            >
+              Gara Fuula Iyyataatti
+            </Link>
           </div>
-        </div>
+        </section>
       </main>
 
-      <footer className="border-t bg-gray-50 py-8 text-center">
-        <p className="text-sm text-gray-400">
-          © 2026 Seif Online Services - Dodola, Oromia, Ethiopia.
+      <footer className="border-t border-slate-200 bg-slate-50 px-6 py-8 text-center">
+        <p className="text-sm text-slate-500">
+          © 2026 Seif Online Services, Dodola, Oromia, fuuldura Buufata Konkolaataa
         </p>
       </footer>
     </div>
