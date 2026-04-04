@@ -223,7 +223,7 @@ export default function Home() {
 
       <footer className="border-t border-slate-200 bg-slate-50 px-6 py-8 text-center">
         <p className="text-sm text-slate-500">
-          © 2026 Seif Online Services, Dodola, Oromia, fuuldura Buufata Konkolaataa
+          © 2026 Seif Online Services
         </p>
       </footer>
     </div>
