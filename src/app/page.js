@@ -94,27 +94,13 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8">
                 <Link
                   href="/apply"
-                  className="rounded-2xl bg-white px-8 py-4 text-base font-black text-blue-700 shadow-2xl transition hover:bg-blue-50"
+                  className="inline-flex rounded-2xl bg-white px-8 py-4 text-base font-black text-blue-700 shadow-2xl transition hover:bg-blue-50"
                 >
                   Amma Iyyadhu
                 </Link>
-                <a
-                  href="https://t.me/Seifa95"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-2xl border border-white/30 bg-[#229ED9] px-8 py-4 text-base font-bold text-white transition hover:bg-[#1c80b0]"
-                >
-                  Telegram Bani
-                </a>
-                <a
-                  href="tel:+251928340303"
-                  className="rounded-2xl border border-white/30 bg-white/10 px-8 py-4 text-base font-bold text-white transition hover:bg-white/15"
-                >
-                  Bilbili: 0928340303
-                </a>
               </div>
             </div>
 
@@ -157,7 +143,7 @@ export default function Home() {
 
         <section
           id="qunnamtii"
-          className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-3"
+          className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-2"
         >
           <div className="rounded-3xl border border-blue-100 bg-blue-50 p-8">
             <div className="text-3xl font-black text-blue-600">01</div>
@@ -175,28 +161,40 @@ export default function Home() {
               Odeeffannoo dabalataa barbaaddan bilbilaan 0928340303 irratti qunnamaa
               yookaan Telegram irratti @Seifa95 fayyadamaa.
             </p>
-            <a
-              href="https://t.me/Seifa95"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 inline-flex rounded-2xl bg-[#229ED9] px-5 py-3 font-black text-white transition hover:bg-[#1c80b0]"
-            >
-              @Seifa95
-            </a>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              <a
+                href="tel:+251928340303"
+                className="rounded-2xl bg-blue-600 px-5 py-4 text-center font-black text-white transition hover:bg-blue-700"
+              >
+                0928340303
+              </a>
+              <a
+                href="https://t.me/Seifa95"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-2xl bg-[#229ED9] px-5 py-4 text-center font-black text-white transition hover:bg-[#1c80b0]"
+              >
+                @Seifa95
+              </a>
+            </div>
           </div>
+        </section>
 
-          <div id="kaffaltii" className="rounded-3xl border border-blue-100 bg-cyan-50 p-8">
+        <section id="kaffaltii" className="mx-auto max-w-6xl px-6 pb-16">
+          <div className="rounded-[2rem] border border-blue-100 bg-cyan-50 p-8 shadow-sm">
             <div className="text-3xl font-black text-blue-600">03</div>
             <h3 className="mt-4 text-xl font-black text-slate-900">Kaffaltii</h3>
             <p className="mt-3 leading-7 text-slate-600">
               CBE fi Telebirr odeeffannoo kaffaltii asitti qofa argitu:
             </p>
-            <p className="mt-4 rounded-2xl bg-white px-4 py-3 text-lg font-black tracking-wide text-slate-900">
-              1000110349231
-            </p>
-            <p className="mt-3 rounded-2xl bg-white px-4 py-3 text-lg font-black tracking-wide text-slate-900">
-              Telebirr: 0910147495
-            </p>
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              <p className="rounded-2xl bg-white px-4 py-4 text-lg font-black tracking-wide text-slate-900">
+                CBE: 1000110349231
+              </p>
+              <p className="rounded-2xl bg-white px-4 py-4 text-lg font-black tracking-wide text-slate-900">
+                Telebirr: 0910147495
+              </p>
+            </div>
           </div>
         </section>
 
