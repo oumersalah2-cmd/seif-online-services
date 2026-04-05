@@ -228,7 +228,7 @@ export default function ApplyPage() {
           </div>
 
           <button type="submit" className="w-full bg-blue-600 text-white py-5 rounded-2xl font-black text-lg hover:bg-blue-700 shadow-xl transition-all active:scale-95">
-            Ergaa Telegram Qopheessi
+            Ergi
           </button>
         </form>
       </div>
