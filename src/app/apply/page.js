@@ -11,7 +11,6 @@ const SERVICE_OPTIONS = [
 export default function ApplyPage() {
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
-  const [submitting, setSubmitting] = useState(false);
   const [selectedService, setSelectedService] = useState("urgent");
   const [fallbackDetails, setFallbackDetails] = useState("");
   const selectedPrice = useMemo(() => {
@@ -43,45 +42,14 @@ export default function ApplyPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
-    setSubmitting(true);
     setError("");
     setStatus("");
-    setFallbackDetails("");
     const fallbackText = buildFallbackDetails(form);
-
-    try {
-      const formData = new FormData(form);
-      const response = await fetch("/api/applications", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        let message = "Galmeen amma hin milkoofne. Irra deebi'ii yaali.";
-
-        try {
-          const result = await response.json();
-          if (result?.message) {
-            message = result.message;
-          }
-        } catch {}
-
-        throw new Error(message);
-      }
-
-      setStatus("Galmeen keessan milkaayinaan server irratti kuufameera!");
-      form.reset();
-      setSelectedService("urgent");
-    } catch (submissionError) {
-      setError("");
-      setFallbackDetails(fallbackText);
-      openTelegramFallback(fallbackText);
-      setStatus(
-        "Server irratti kuufamuun dadhabe. Iyyanni keessan Telegram irratti banameera; achitti ergaa itti fufaa.",
-      );
-    } finally {
-      setSubmitting(false);
-    }
+    setFallbackDetails(fallbackText);
+    openTelegramFallback(fallbackText);
+    setStatus(
+      "Iyyata keessan Telegram irratti banneerra. Amma ergaa sana keessaa odeeffannoo ergaa, itti aansuun dokumantii fi screenshot kaffaltii achitti upload godhaa.",
+    );
   };
 
   return (
@@ -115,8 +83,8 @@ export default function ApplyPage() {
                 Emergency Fallback
               </p>
               <p className="mt-2 text-sm font-semibold leading-6 text-slate-700">
-                Yoo server hin kuufne, odeeffannoo kanaan Telegram yookaan bilbilaan itti
-                fufuu dandeessu.
+                Odeeffannoo kana copy gochuun Telegram irratti ergaa. Sana booda
+                dokumantiiwwan fi screenshot kaffaltii addatti achitti upload godhaa.
               </p>
               <pre className="mt-4 whitespace-pre-wrap rounded-xl bg-white p-4 text-sm font-bold text-slate-800">
                 {fallbackDetails}
@@ -252,15 +220,15 @@ export default function ApplyPage() {
               Telegram irratti bani
             </a>
             <a
-              href="/admin/login"
+              href="/telegram"
               className="rounded-2xl border border-blue-200 bg-blue-50 px-6 py-4 text-center font-black text-blue-700 transition hover:bg-blue-100"
             >
-              Admin Dashboard Ilaali
+              Odeeffannoo Telegram Ilaali
             </a>
           </div>
 
-          <button type="submit" disabled={submitting} className="w-full bg-blue-600 text-white py-5 rounded-2xl font-black text-lg hover:bg-blue-700 shadow-xl transition-all active:scale-95 disabled:cursor-not-allowed disabled:bg-blue-300">
-            {submitting ? "Ergaa jira..." : "IYYATA ERGAA"}
+          <button type="submit" className="w-full bg-blue-600 text-white py-5 rounded-2xl font-black text-lg hover:bg-blue-700 shadow-xl transition-all active:scale-95">
+            Ergaa Telegram Qopheessi
           </button>
         </form>
       </div>
